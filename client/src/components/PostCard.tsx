@@ -57,7 +57,6 @@ const PostCard = ({
         value,
       });
       if (revalidate) revalidate();
-      console.log(res.data);
     } catch (err) {}
   };
 
@@ -93,7 +92,7 @@ const PostCard = ({
               <Link href={`/s/${subName}`}>
                 <a>
                   <Image
-                    src="/images/gravatarlogo.jpeg"
+                    src={sub.imageUrl}
                     alt="avatar"
                     width={25}
                     height={25}

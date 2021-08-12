@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import StoclueLogo from '../images/logo.svg';
+import StoclueLogo from '../../public/images/rupee.png';
 import { FaSearch } from 'react-icons/fa';
 import { useAuthState, useAuthDispatch } from '../context/auth';
 import axios from 'axios';
@@ -43,7 +43,6 @@ const Navbar: React.FC = () => {
         try {
           const { data } = await axios.get(`/subs/search/${name}`);
           setSubs(data);
-          console.log(data);
         } catch (err) {
           console.log(err);
         }
@@ -61,12 +60,15 @@ const Navbar: React.FC = () => {
       {/* logo and title */}
       <div className="flex items-center">
         <Link href="/">
-          <a>
-            <StoclueLogo className="w-8 h-8 mr-2" />
+          <a className="w-8 h-8 mr-2">
+            <Image src={StoclueLogo} alt="" />
           </a>
         </Link>
-        <span className="hidden text-2xl font-semibold lg:block">
-          <Link href="/">Stoclue</Link>
+        <span className="hidden text-xl font-light text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-yellow-500 xl:block">
+          <Link href="/">Online Dalal Street Discussion</Link>
+        </span>
+        <span className="hidden text-xl font-light text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-yellow-500 md:block xl:hidden">
+          <Link href="/">STOCLUE.COM</Link>
         </span>
       </div>
       {/* Search Input */}
